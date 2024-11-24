@@ -1,0 +1,51 @@
+$primary-color: #3498db;
+$secondary-color: #333;
+$background-color: #fff;
+
+@function darken-color($color, $percentage) {
+    @return darken($color, $percentage)
+}
+
+
+@mixin padding-responsivo($padding-pequeno, $padding-grande) {
+    padding: $padding-pequeno;
+
+    @media (min-width: 768px) {
+        padding: $padding-grande;
+    }
+}
+
+.container {
+    background-color: $background-color;
+    @include padding-responsivo(1rem, 2rem)
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: $secondary-color;
+    }
+
+    p {
+        font-size: 1rem;
+        color: $secondary-color;
+    }
+
+    button {
+        background-color: $primary-color;
+        border: none;
+        border-radius: 10%;
+    
+        &:hover {
+            background-color: darken-color($primary-color, 10% ) ;
+        }   
+    }
+
+}
+
+
+
